@@ -1,2 +1,3 @@
-# nano-tuner
-Stringed instrument tuner by Nano.
+# Nano tuner
+
+An (instrument) tuner. By Nano.
