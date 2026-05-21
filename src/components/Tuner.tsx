@@ -16,12 +16,16 @@ export function Tuner() {
     return (
       <div className='tuner'>
         <div className='top'>
-          <div className='display'>
-            <div className='note'>
-              <span className='note-name'>E</span>
-              <span className='note-index'>0</span>
+          <div className='outer-frame'>
+            <div className='inner-frame'>
+              <div className='display'>
+                <div className='note'>
+                  <span className='note-name'>E</span>
+                  <span className='note-index'>0</span>
+                </div>
+                <div className='note-frequency'>80 Hz</div>
+              </div>
             </div>
-            <div className='note-frequency'>80 Hz</div>
           </div>
         </div>
         <AccuracyBar />
