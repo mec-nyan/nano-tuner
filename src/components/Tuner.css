@@ -92,19 +92,71 @@
   /* border: 1px solid red; */
 }
 
-.accuracy {
+.accuracy-bar {
   width: 100%;
-  height: 16px;
+  /* height: 16px; */
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  padding: 0 2rem;
+  /* padding: 0 2rem; */
   /* border: 1px solid red; */
 }
 
-.accuracy .bar {
+.cents-display {
+  padding-bottom: 1rem;
+  color: limegreen;
+}
+
+.accuracy-lights {
+  height: 16px;
+  width: 75vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.light {
   height: 100%;
   width: 16px;
   background-color: #111;
+  border: 2px solid black;
+  overflow: hidden;
   border-radius: 8px;
+}
+
+.light .red {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(red, black);
+}
+
+.light .orange {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(orange, black);
+}
+
+.light .yellow {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(yellow, black);
+}
+
+.light .green {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(lime, black);
+}
+
+.light div {
+  transition: background 0.3s;
+}
+
+.light .off {
+  opacity: 0;
+}
+
+.light .on {
+  opacity: 1;
 }
