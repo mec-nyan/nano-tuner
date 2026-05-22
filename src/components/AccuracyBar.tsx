@@ -1,11 +1,15 @@
 import './AccuracyBar.css'
 
 
-export default function AccuracyBar({ cents }: { cents: number}) {
+export default function AccuracyBar({ cents }: { cents: number | null}) {
   let lights = []
   const numLights = 7
   for (let i = 0; i < numLights; i++) {
-    const active = isActive(cents, i )
+    let active = false
+    if (cents !== null) {
+      active = isActive(cents, i )
+    }
+
     let colour: string
     switch (i) {
       case 0:
@@ -30,9 +34,15 @@ export default function AccuracyBar({ cents }: { cents: number}) {
         </div>
     )
   }
+
+  let centsString = ''
+
+  if (cents !== null && cents !== 0) {
+    centsString = `${formatSigned(cents)} cents`
+  }
   return (
     <div className='accuracy-bar'>
-      <div className='cents-display'>{cents > 0 && '+'}{cents} cents</div>
+      <div className='cents-display'>{centsString}</div>
       <div className='accuracy-lights'>
         {lights}
       </div>
@@ -60,4 +70,11 @@ function isActive(cents: number, light: number): boolean {
   }
 
   return cents >= valueRanges[light-1] && cents < valueRanges[light]
+}
+
+function formatSigned(n: number): string {
+  // Positive numbers will show "+n"
+  // Negative numbers will show "-n"
+  // Zero will just be "0".
+  return n > 0 ? `+${n}` : `${n}`
 }

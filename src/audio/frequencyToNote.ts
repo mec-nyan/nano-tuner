@@ -9,8 +9,11 @@ export interface NoteInfo {
 }
 
 // TODO: Check this whole logic...
-export function frequencyToNote(frequency: number): NoteInfo {
-  console.log(`Freq: ${frequency}`)
+export function frequencyToNote(frequency: number | null): NoteInfo | null {
+  // console.log(`Freq: ${frequency}`)
+  if (frequency === null) {
+    return null
+  }
   // Find MIDI note number:
   const midiNote =  A4_MIDI + (12 * Math.log2(frequency / A4_FREQUENCY))
   const closestMidiNoteNumber = Math.round(midiNote)
