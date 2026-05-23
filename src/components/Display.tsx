@@ -18,6 +18,7 @@ export default function Display({ noteInfo }: { noteInfo: NoteInfo | null}) {
             <span className='note-index'>{noteInfo ? noteInfo.octave : '-'}</span>
             */}
             <span className='note-name'>{noteInfo ? noteInfo.note : 'A'}</span>
+            <span className='note-accidental'>{noteInfo && noteInfo.accidental}</span>
             <span className='note-index'>{noteInfo ? noteInfo.octave : '2'}</span>
           </div>
           {/*

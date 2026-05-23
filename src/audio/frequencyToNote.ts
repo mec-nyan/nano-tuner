@@ -1,7 +1,10 @@
 import { A4_FREQUENCY, A4_MIDI, ALLOWED_DEVIATION, NOTES } from "./audioConstants";
 
+import { accidentalToString } from "./audioConstants";
+
 export interface NoteInfo {
   note: string
+  accidental: string
   octave: number
   frequency: number
   cents: number
@@ -27,7 +30,8 @@ export function frequencyToNote(frequency: number | null): NoteInfo | null {
   const cents = Math.round(1200 * Math.log2(frequency / expectedFrequency))
 
   return {
-    note: noteName,
+    note: noteName.name,
+    accidental: accidentalToString(noteName.accidental),
     octave,
     frequency,
     cents,
