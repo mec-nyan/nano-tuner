@@ -76,5 +76,6 @@ function formatSigned(n: number): string {
   // Positive numbers will show "+n"
   // Negative numbers will show "-n"
   // Zero will just be "0".
-  return n > 0 ? `+${n}` : `${n}`
+  const nFixed = n.toFixed(1)
+  return n > 0 ? `+${nFixed}` : `${nFixed}`
 }

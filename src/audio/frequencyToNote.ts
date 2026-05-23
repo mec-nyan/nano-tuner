@@ -30,8 +30,7 @@ export function frequencyToNote(frequency: number | null): NoteInfo | null {
 
   // How many cents sharp/flat is the note?
   const targetNoteFrequency = A4_FREQUENCY * Math.pow(2, (closestMidiNoteNumber - A4_MIDI) / 12)
-  // TODO: Use 'cents' with decimal places.
-  const cents = Math.round(1200 * Math.log2(frequency / targetNoteFrequency))
+  const cents = 1200 * Math.log2(frequency / targetNoteFrequency)
 
   return {
     note: noteName.name,
