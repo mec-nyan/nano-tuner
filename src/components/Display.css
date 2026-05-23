@@ -87,14 +87,43 @@
   opacity: 0.3;
 }
 
-.note-frequency {
+.note-details {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  padding: 0 8px;
+  opacity: 0.4;
+  /* border: 1px solid red; */
+}
+
+.note-frequency,
+.note-deviation-minus,
+.note-deviation-plus {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
   font-family: monospace;
   font-size: 5vw;
-  opacity: 0.4;
   /* border: 1px solid red; */
+}
+
+.note-frequency {
+  justify-content: center;
+}
+
+.note-deviation-minus,
+.note-deviation-plus {
+  font-size: 3vw;
+}
+
+.note-deviation-minus {
+  text-align: left;
+  justify-content: left;
+}
+
+.note-deviation-plus {
+  text-align: right;
+  justify-content: right;
 }

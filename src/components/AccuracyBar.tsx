@@ -35,12 +35,13 @@ export default function AccuracyBar({ cents }: { cents: number | null}) {
     )
   }
 
+  // TODO: Remmove this once cents are added to the Display component.
   // let centsString = ''
-  let centsString = '+42 cents'
 
-  if (cents !== null && cents !== 0) {
-    centsString = `${formatSigned(cents)} cents`
-  }
+  // if (cents !== null && cents !== 0) {
+  //   centsString = `${formatSigned(cents)} cents`
+  // }
+
   return (
     <div className='accuracy-bar'>
       <div className='accuracy-lights'>
@@ -73,12 +74,4 @@ function isActive(cents: number, light: number): boolean {
   }
 
   return cents >= valueRanges[light-1] && cents < valueRanges[light]
-}
-
-function formatSigned(n: number): string {
-  // Positive numbers will show "+n"
-  // Negative numbers will show "-n"
-  // Zero will just be "0".
-  const nFixed = n.toFixed(1)
-  return n > 0 ? `+${nFixed}` : `${nFixed}`
 }
