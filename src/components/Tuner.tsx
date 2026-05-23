@@ -20,8 +20,8 @@ export function Tuner() {
       <div className='tuner'>
         <div className='top'>
           <Display noteInfo={noteInfo} />
+          <AccuracyBar cents={noteInfo ? noteInfo.cents : null} />
         </div>
-        <AccuracyBar cents={noteInfo ? noteInfo.cents : null} />
       </div>
     )
 }

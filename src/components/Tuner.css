@@ -14,9 +14,11 @@
 .top {
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   box-sizing: border-box;
-  padding: 12.5vw 0 2rem;
-  /* border: 1px solid black; */
+  /* Padding top should be equal to the distance to the sides. */
+  padding: 12.5vw 0 1rem;
+  /* border: 1px solid yellow; */
 }

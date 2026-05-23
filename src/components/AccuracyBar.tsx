@@ -35,17 +35,20 @@ export default function AccuracyBar({ cents }: { cents: number | null}) {
     )
   }
 
-  let centsString = ''
+  // let centsString = ''
+  let centsString = '+42 cents'
 
   if (cents !== null && cents !== 0) {
     centsString = `${formatSigned(cents)} cents`
   }
   return (
     <div className='accuracy-bar'>
-      <div className='cents-display'>{centsString}</div>
       <div className='accuracy-lights'>
         {lights}
       </div>
+      {/* I'm thinking this must go inside the display.
+      <div className='cents-display'>{centsString}</div>
+      */}
     </div>
   )
 }
