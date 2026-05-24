@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from "react";
-import { autoCorrelate } from "../audio/autocorrelation";
-import { createSmoother } from "../audio/smoothing";
+import { useEffect, useRef, useState } from 'react'
+import { autoCorrelate } from '../audio/autocorrelation'
+import { createSmoother } from '../audio/smoothing'
 
 export function usePitchDetector() {
-  const [ frequency, setFrequency ] = useState<number | null>(null)
-  const [ error, setError ] = useState<string | null>(null)
+  const [frequency, setFrequency] = useState<number | null>(null)
+  const [error, setError] = useState<string | null>(null)
   const smoothRef = useRef(createSmoother(5))
 
   useEffect(() => {
@@ -41,12 +41,11 @@ export function usePitchDetector() {
           const now = performance.now()
 
           if (now - lastUpdate > UPDATE_INTERVAL) {
-
             analyser.getFloatTimeDomainData(buffer)
 
             const detectedFrequency = autoCorrelate(
               buffer,
-              audioContext.sampleRate,
+              audioContext.sampleRate
             )
 
             console.log(`Detected: ${detectedFrequency}`)
@@ -57,7 +56,6 @@ export function usePitchDetector() {
 
             lastUpdate = now
           }
-
 
           animationId = requestAnimationFrame(update)
         }
@@ -74,9 +72,7 @@ export function usePitchDetector() {
       cancelAnimationFrame(animationId)
 
       if (stream) {
-        stream
-          .getTracks()
-          .forEach(track => track.stop())
+        stream.getTracks().forEach((track) => track.stop())
       }
 
       if (audioContext) {

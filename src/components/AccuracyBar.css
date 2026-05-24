@@ -32,13 +32,15 @@
   height: 24px;
   width: 24px;
   padding: 3px;
-  background-image: conic-gradient(#101010 70deg,
-      #303030 110deg,
-      #404040 145deg,
-      #808080 180deg,
-      #404040 215deg,
-      #303030 250deg,
-      #101010 290deg);
+  background-image: conic-gradient(
+    #101010 70deg,
+    #303030 110deg,
+    #404040 145deg,
+    #808080 180deg,
+    #404040 215deg,
+    #303030 250deg,
+    #101010 290deg
+  );
   overflow: hidden;
   border-radius: 50%;
 }
@@ -51,27 +53,19 @@
 }
 
 .light .red {
-  background: radial-gradient(circle at 50% 40%,
-      #ff0060 0% 15%,
-      black 75%);
+  background: radial-gradient(circle at 50% 40%, #ff0060 0% 15%, black 75%);
 }
 
 .light .orange {
-  background: radial-gradient(circle at 50% 40%,
-      #ff6060 0% 15%,
-      black 75%);
+  background: radial-gradient(circle at 50% 40%, #ff6060 0% 15%, black 75%);
 }
 
 .light .yellow {
-  background: radial-gradient(circle at 50% 40%,
-      #ff8f50 0% 15%,
-      black 75%);
+  background: radial-gradient(circle at 50% 40%, #ff8f50 0% 15%, black 75%);
 }
 
 .light .green {
-  background: radial-gradient(circle at 50% 40%,
-      #00ff60 0% 15%,
-      black 75%);
+  background: radial-gradient(circle at 50% 40%, #00ff60 0% 15%, black 75%);
 }
 
 .light .off {

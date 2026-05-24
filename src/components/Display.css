@@ -17,14 +17,16 @@
   height: 100%;
   padding: 12px;
   border-radius: 8px;
-  background-image: conic-gradient(from -90deg,
-      #181818 0deg 33deg,
-      #101010 37deg 144deg,
-      #282828 146deg 215deg,
-      #404040 217deg,
-      #707070 258deg,
-      #404040 323deg,
-      #181818 325deg 360deg);
+  background-image: conic-gradient(
+    from -90deg,
+    #181818 0deg 33deg,
+    #101010 37deg 144deg,
+    #282828 146deg 215deg,
+    #404040 217deg,
+    #707070 258deg,
+    #404040 323deg,
+    #181818 325deg 360deg
+  );
 }
 
 .display {
@@ -49,7 +51,7 @@
   justify-content: space-around;
   align-items: center;
   color: limegreen;
-  opacity: .5;
+  opacity: 0.5;
   /* border: 1px solid yellow; */
 }
 

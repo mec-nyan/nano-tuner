@@ -19,40 +19,52 @@ export function accidentalToString(acc: accidental): string {
 // TODO: Use a musical font to show 'b' and '#' instead of 'lowercase B' and 'hash'.
 export const NOTES: NoteName[] = [
   {
-    name: 'C', accidental: null
+    name: 'C',
+    accidental: null,
   },
   {
-    name: 'C', accidental: 'sharp'
+    name: 'C',
+    accidental: 'sharp',
   },
   {
-    name: 'D', accidental: null
+    name: 'D',
+    accidental: null,
   },
   {
-    name: 'E', accidental: 'flat'
+    name: 'E',
+    accidental: 'flat',
   },
   {
-    name: 'E', accidental: null
+    name: 'E',
+    accidental: null,
   },
   {
-    name: 'F', accidental: null
+    name: 'F',
+    accidental: null,
   },
   {
-    name: 'F', accidental: 'sharp'
+    name: 'F',
+    accidental: 'sharp',
   },
   {
-    name: 'G', accidental: null
+    name: 'G',
+    accidental: null,
   },
   {
-    name: 'A', accidental: 'flat'
+    name: 'A',
+    accidental: 'flat',
   },
   {
-    name: 'A', accidental: null
+    name: 'A',
+    accidental: null,
   },
   {
-    name: 'B', accidental: 'flat'
+    name: 'B',
+    accidental: 'flat',
   },
   {
-    name: 'B', accidental: null
+    name: 'B',
+    accidental: null,
   },
 ]
 

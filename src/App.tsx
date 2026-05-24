@@ -13,9 +13,9 @@ function App() {
         <div className='border-top-shine'></div>
         <footer>
           <p>
-            Made with <span
-              className='material-symbols-outlined love'>favorite</span> by <span
-              className='author'>nano</span>.
+            Made with{' '}
+            <span className='material-symbols-outlined love'>favorite</span> by{' '}
+            <span className='author'>nano</span>.
           </p>
         </footer>
       </div>

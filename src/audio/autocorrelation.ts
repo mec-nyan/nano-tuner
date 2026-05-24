@@ -2,11 +2,10 @@ export function autoCorrelate(
   buffer: Float32Array,
   sampleRate: number
 ): number | null {
-
   // Computer RMS to detect silence.
   let rms = 0
 
-  for (let i = 0 ;i < buffer.length; i++) {
+  for (let i = 0; i < buffer.length; i++) {
     rms += buffer[i] * buffer[i]
   }
 
@@ -26,10 +25,10 @@ export function autoCorrelate(
   const minLag = Math.floor(sampleRate / 1000)
   const maxLag = Math.floor(sampleRate / 50)
 
-  for (let lag = minLag; lag <= maxLag ;lag++) {
+  for (let lag = minLag; lag <= maxLag; lag++) {
     let correlation = 0
 
-    for (let i = 0; i < buffer.length - lag ;i++) {
+    for (let i = 0; i < buffer.length - lag; i++) {
       correlation += buffer[i] * buffer[i + lag]
     }
 

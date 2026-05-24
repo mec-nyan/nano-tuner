@@ -12,9 +12,7 @@ export function createSmoother(size = 5) {
       history.shift()
     }
 
-    const average =
-      history.reduce((a, b) => a + b, 0) /
-      history.length
+    const average = history.reduce((a, b) => a + b, 0) / history.length
 
     return average
   }

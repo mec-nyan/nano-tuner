@@ -1,9 +1,8 @@
-import type { NoteInfo } from "../audio/frequencyToNote";
+import type { NoteInfo } from '../audio/frequencyToNote'
 
 import './Display.css'
 
-export default function Display({ noteInfo }: { noteInfo: NoteInfo | null}) {
-
+export default function Display({ noteInfo }: { noteInfo: NoteInfo | null }) {
   let centsStringPlus = ''
   let centsStringMinus = ''
   // NOTE: If 'cents' === 0 then we have nothing to show.
@@ -31,8 +30,12 @@ export default function Display({ noteInfo }: { noteInfo: NoteInfo | null}) {
             <span className='note-index'>{noteInfo ? noteInfo.octave : '-'}</span>
             */}
             <span className='note-name'>{noteInfo ? noteInfo.note : 'A'}</span>
-            <span className='note-accidental'>{noteInfo && noteInfo.accidental}</span>
-            <span className='note-index'>{noteInfo ? noteInfo.octave : '2'}</span>
+            <span className='note-accidental'>
+              {noteInfo && noteInfo.accidental}
+            </span>
+            <span className='note-index'>
+              {noteInfo ? noteInfo.octave : '2'}
+            </span>
           </div>
 
           {/*
@@ -50,7 +53,6 @@ export default function Display({ noteInfo }: { noteInfo: NoteInfo | null}) {
     </div>
   )
 }
-
 
 function formatSigned(n: number): string {
   // Positive numbers will show "+n"

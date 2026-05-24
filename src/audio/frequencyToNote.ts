@@ -1,6 +1,11 @@
-import { A4_FREQUENCY, A4_MIDI, ALLOWED_DEVIATION, NOTES } from "./audioConstants";
+import {
+  A4_FREQUENCY,
+  A4_MIDI,
+  ALLOWED_DEVIATION,
+  NOTES,
+} from './audioConstants'
 
-import { accidentalToString } from "./audioConstants";
+import { accidentalToString } from './audioConstants'
 
 export interface NoteInfo {
   note: string
@@ -14,11 +19,7 @@ export interface NoteInfo {
 // TODO: Check this whole logic...
 export function frequencyToNote(frequency: number | null): NoteInfo | null {
   // console.log(`Freq: ${frequency}`)
-  if (
-    frequency === null ||
-    !Number.isFinite(frequency) ||
-    frequency <= 0
-  ) {
+  if (frequency === null || !Number.isFinite(frequency) || frequency <= 0) {
     return null
   }
   // Find MIDI note number:
@@ -29,7 +30,8 @@ export function frequencyToNote(frequency: number | null): NoteInfo | null {
   const noteName = NOTES[closestMidiNoteNumber % 12]
 
   // How many cents sharp/flat is the note?
-  const targetNoteFrequency = A4_FREQUENCY * Math.pow(2, (closestMidiNoteNumber - A4_MIDI) / 12)
+  const targetNoteFrequency =
+    A4_FREQUENCY * Math.pow(2, (closestMidiNoteNumber - A4_MIDI) / 12)
   const cents = 1200 * Math.log2(frequency / targetNoteFrequency)
 
   return {
@@ -43,7 +45,7 @@ export function frequencyToNote(frequency: number | null): NoteInfo | null {
 }
 
 function getClosestMIDINote(frequency: number): number {
-  const MIDIWithDecimals =  A4_MIDI + (12 * Math.log2(frequency / A4_FREQUENCY))
+  const MIDIWithDecimals = A4_MIDI + 12 * Math.log2(frequency / A4_FREQUENCY)
   const closestMidiNoteNumber = Math.round(MIDIWithDecimals)
   return closestMidiNoteNumber
 }

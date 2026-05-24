@@ -1,13 +1,12 @@
 import './AccuracyBar.css'
 
-
-export default function AccuracyBar({ cents }: { cents: number | null}) {
+export default function AccuracyBar({ cents }: { cents: number | null }) {
   let lights = []
   const numLights = 7
   for (let i = 0; i < numLights; i++) {
     let active = false
     if (cents !== null) {
-      active = isActive(cents, i )
+      active = isActive(cents, i)
     }
 
     let colour: string
@@ -30,8 +29,8 @@ export default function AccuracyBar({ cents }: { cents: number | null}) {
 
     lights.push(
       <div className='light'>
-          <div className={`${colour} ${active ? ' on' : ' off'}`}></div>
-        </div>
+        <div className={`${colour} ${active ? ' on' : ' off'}`}></div>
+      </div>
     )
   }
 
@@ -44,9 +43,7 @@ export default function AccuracyBar({ cents }: { cents: number | null}) {
 
   return (
     <div className='accuracy-bar'>
-      <div className='accuracy-lights'>
-        {lights}
-      </div>
+      <div className='accuracy-lights'>{lights}</div>
       {/* I'm thinking this must go inside the display.
       <div className='cents-display'>{centsString}</div>
       */}
@@ -67,11 +64,11 @@ function isActive(cents: number, light: number): boolean {
   // 5: < 32
   // 6: >=32
 
-  const valueRanges = [ -32, -16, -3, 4, 17, 33, 51 ]
+  const valueRanges = [-32, -16, -3, 4, 17, 33, 51]
 
   if (light === 0) {
     return cents < valueRanges[light]
   }
 
-  return cents >= valueRanges[light-1] && cents < valueRanges[light]
+  return cents >= valueRanges[light - 1] && cents < valueRanges[light]
 }
