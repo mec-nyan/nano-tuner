@@ -53,6 +53,22 @@
  *
  * and Bob's your uncle!
  *
+ * The given frequency may be other than the exact frequency of a note in 12 TET, so we
+ * may end up with a decimal number, which is good.  We can then `round` that number to
+ * get the closest number of a note in tune according to the selected base note. So
+ *
+ *     closest_note = round(a + 12 * log2(fn/fa))
+ *
+ *     where a = 69, fa = 440 and fn = 470.0
+ *
+ *     closest_note = round(69 + 12 * log2(470.0/440.0))
+ *                  = round(69 + 12 * 0.0951...)
+ *                  = round(69 * 1.1418...)
+ *                  = round(70.1418...)
+ *                  = 70
+ *
+ *     and `70` (Bb4) is the closest note number for that frequency.
+ *
  * From Wikipedia, the free encyclopedia:
  *
  *     For `Scientific pith notation`
@@ -67,13 +83,16 @@
 
 import {
   A4_FREQUENCY,
-  A4_MIDI,
+  A4_MIDI_NUMBER,
   ALLOWED_DEVIATION,
   NOTES,
 } from './audioConstants'
 
 import { accidentalToString } from './audioConstants'
 
+/**
+ * NoteInfo contains the musical note information of a given frequency
+ */
 export interface NoteInfo {
   note: string
   accidental: string
@@ -83,12 +102,15 @@ export interface NoteInfo {
   isInTune: boolean
 }
 
+/**
+ * frequencyToNote give the note information for a given frequency.
+ */
 export function frequencyToNote(frequency: number | null): NoteInfo | null {
   if (frequency === null || !Number.isFinite(frequency) || frequency <= 0) {
     return null
   }
   // Find MIDI note number:
-  const closestMidiNoteNumber = getClosestMIDINote(frequency)
+  const closestMidiNoteNumber = getClosestNoteNumber(frequency)
 
   // Find octave.
   const octave = Math.floor(closestMidiNoteNumber / 12) - 1
@@ -96,8 +118,8 @@ export function frequencyToNote(frequency: number | null): NoteInfo | null {
 
   // How many cents sharp/flat is the note?
   const targetNoteFrequency =
-    A4_FREQUENCY * Math.pow(2, (closestMidiNoteNumber - A4_MIDI) / 12)
-  const cents = 1200 * Math.log2(frequency / targetNoteFrequency)
+    A4_FREQUENCY * Math.pow(2, (closestMidiNoteNumber - A4_MIDI_NUMBER) / 12)
+  const cents = getCents(frequency, targetNoteFrequency)
 
   return {
     note: noteName.name,
@@ -109,8 +131,40 @@ export function frequencyToNote(frequency: number | null): NoteInfo | null {
   }
 }
 
-function getClosestMIDINote(frequency: number): number {
-  const MIDIWithDecimals = A4_MIDI + 12 * Math.log2(frequency / A4_FREQUENCY)
-  const closestMidiNoteNumber = Math.round(MIDIWithDecimals)
-  return closestMidiNoteNumber
+/**
+ * getClosestNoteNumber get the closest MIDI note number for the given frequency.
+ *
+ * The given frequency may be other than the exact frequency of a note in 12 TET, so we
+ * may end up with a decimal number, which is good.  We can then `round` that number to
+ * get the closest number of a note in tune according to the selected base note. So
+ *
+ *     closest_note = round(a + 12 * log2(fn/fa))
+ *
+ *     where a = 69, fa = 440 and fn = 470.0
+ *
+ *     closest_note = round(69 + 12 * log2(470.0/440.0))
+ *                  = round(69 + 12 * 0.0951...)
+ *                  = round(69 * 1.1418...)
+ *                  = round(70.1418...)
+ *                  = 70
+ *
+ *     and `70` (Bb4) is the closest note number for that frequency.
+ *
+ * See the related documentation on how this formula relates to 12 TET at the top of
+ * this file.
+ */
+function getClosestNoteNumber(frequency: number): number {
+  return Math.round(A4_MIDI_NUMBER + 12 * Math.log2(frequency / A4_FREQUENCY))
+}
+
+/**
+ * getCents get the difference between the current note/frequency to the closest note,
+ * in cents.
+ *
+ *
+ *     For `(How to calculate) Cents`
+ *     @see https://en.wikipedia.org/wiki/Cent_(music)
+ */
+function getCents(frequency: number, target: number): number {
+  return 1200 * Math.log2(frequency / target)
 }

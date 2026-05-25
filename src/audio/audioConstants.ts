@@ -72,6 +72,6 @@ export const A0_MIDI = 21
 
 export const A4_FREQUENCY = 440
 
-export const A4_MIDI = 69
+export const A4_MIDI_NUMBER = 69
 
 export const ALLOWED_DEVIATION = 3
