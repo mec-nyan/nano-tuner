@@ -34,19 +34,13 @@ export default function AccuracyBar({ cents }: { cents: number | null }) {
     )
   }
 
-  // TODO: Remmove this once cents are added to the Display component.
-  // let centsString = ''
-
-  // if (cents !== null && cents !== 0) {
-  //   centsString = `${formatSigned(cents)} cents`
-  // }
-
   return (
     <div className='accuracy-bar'>
       <div className='accuracy-lights'>{lights}</div>
-      {/* I'm thinking this must go inside the display.
-      <div className='cents-display'>{centsString}</div>
-      */}
+      <div className='low-high-indicator'>
+        <span>LOW</span>
+        <span>HIGH</span>
+      </div>
     </div>
   )
 }
