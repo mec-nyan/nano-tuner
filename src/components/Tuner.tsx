@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { frequencyToNote } from '../audio/frequencyToNote'
 import { usePitchDetector } from '../hooks/usePitchDetector'
 import AccuracyBar from './AccuracyBar'
@@ -5,8 +6,10 @@ import BasePitchSelector from './BasePitchSelector'
 import Display from './Display'
 
 import './Tuner.css'
+import { A4_FREQUENCY } from '../audio/audioConstants'
 
 export function Tuner() {
+  const [ basePitch, setBasePitch ] = useState(A4_FREQUENCY)
   const { frequency, error } = usePitchDetector()
 
   // TODO: Display errors gracefully.
@@ -14,12 +17,12 @@ export function Tuner() {
     return <div className='error-message'>{error}</div>
   }
 
-  const noteInfo = frequencyToNote(frequency)
+  const noteInfo = frequencyToNote(frequency, basePitch)
 
   return (
     <div className='tuner'>
       <div className='top'>
-        <Display noteInfo={noteInfo} />
+        <Display noteInfo={noteInfo} base={basePitch} />
         <AccuracyBar cents={noteInfo ? noteInfo.cents : null} />
       </div>
       {/*
@@ -30,7 +33,7 @@ export function Tuner() {
 
       I may need to wrap them in a `container` component to tidy up the layout later.
       */}
-      <BasePitchSelector />
+      <BasePitchSelector basePitch={basePitch} setBasePitch={setBasePitch} />
     </div>
   )
 }

@@ -2,7 +2,7 @@ import type { NoteInfo } from '../audio/frequencyToNote'
 
 import './Display.css'
 
-export default function Display({ noteInfo }: { noteInfo: NoteInfo | null }) {
+export default function Display({ noteInfo, base }: { noteInfo: NoteInfo | null, base: number }) {
   let centsStringPlus = ''
   let centsStringMinus = ''
   // NOTE: If 'cents' === 0 then we have nothing to show.
@@ -20,7 +20,7 @@ export default function Display({ noteInfo }: { noteInfo: NoteInfo | null }) {
         <div className='display'>
           <div className='top-info-bar'>
             <div className='info-flat'>♭</div>
-            <div className='info-fork'>A4 = 440Hz</div>
+            <div className='info-fork'>A4 = {base}Hz</div>
             <div className='info-sharp'>♯</div>
           </div>
 

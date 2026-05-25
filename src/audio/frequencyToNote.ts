@@ -82,7 +82,6 @@
  */
 
 import {
-  A4_FREQUENCY,
   A4_MIDI_NUMBER,
   ALLOWED_DEVIATION,
   NOTES,
@@ -105,12 +104,12 @@ export interface NoteInfo {
 /**
  * frequencyToNote give the note information for a given frequency.
  */
-export function frequencyToNote(frequency: number | null): NoteInfo | null {
+export function frequencyToNote(frequency: number | null, base: number): NoteInfo | null {
   if (frequency === null || !Number.isFinite(frequency) || frequency <= 0) {
     return null
   }
   // Find MIDI note number:
-  const closestMidiNoteNumber = getClosestNoteNumber(frequency)
+  const closestMidiNoteNumber = getClosestNoteNumber(frequency, base)
 
   // Find octave.
   const octave = Math.floor(closestMidiNoteNumber / 12) - 1
@@ -118,7 +117,7 @@ export function frequencyToNote(frequency: number | null): NoteInfo | null {
 
   // How many cents sharp/flat is the note?
   const targetNoteFrequency =
-    A4_FREQUENCY * Math.pow(2, (closestMidiNoteNumber - A4_MIDI_NUMBER) / 12)
+    base * Math.pow(2, (closestMidiNoteNumber - A4_MIDI_NUMBER) / 12)
   const cents = getCents(frequency, targetNoteFrequency)
 
   return {
@@ -153,8 +152,8 @@ export function frequencyToNote(frequency: number | null): NoteInfo | null {
  * See the related documentation on how this formula relates to 12 TET at the top of
  * this file.
  */
-function getClosestNoteNumber(frequency: number): number {
-  return Math.round(A4_MIDI_NUMBER + 12 * Math.log2(frequency / A4_FREQUENCY))
+function getClosestNoteNumber(frequency: number, base: number): number {
+  return Math.round(A4_MIDI_NUMBER + 12 * Math.log2(frequency / base))
 }
 
 /**
