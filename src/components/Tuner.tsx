@@ -9,7 +9,7 @@ import './Tuner.css'
 import { A4_FREQUENCY } from '../audio/audioConstants'
 
 export function Tuner() {
-  const [ basePitch, setBasePitch ] = useState(A4_FREQUENCY)
+  const [basePitch, setBasePitch] = useState(A4_FREQUENCY)
   const { frequency, error } = usePitchDetector()
 
   // TODO: Display errors gracefully.

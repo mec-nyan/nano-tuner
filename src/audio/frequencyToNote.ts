@@ -81,11 +81,7 @@
  *     @see https://en.wikipedia.org/wiki/Cent_(music)
  */
 
-import {
-  A4_MIDI_NUMBER,
-  ALLOWED_DEVIATION,
-  NOTES,
-} from './audioConstants'
+import { A4_MIDI_NUMBER, ALLOWED_DEVIATION, NOTES } from './audioConstants'
 
 import { accidentalToString } from './audioConstants'
 
@@ -104,7 +100,10 @@ export interface NoteInfo {
 /**
  * frequencyToNote give the note information for a given frequency.
  */
-export function frequencyToNote(frequency: number | null, base: number): NoteInfo | null {
+export function frequencyToNote(
+  frequency: number | null,
+  base: number
+): NoteInfo | null {
   if (frequency === null || !Number.isFinite(frequency) || frequency <= 0) {
     return null
   }
