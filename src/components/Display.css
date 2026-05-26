@@ -10,6 +10,7 @@
   aspect-ratio: 4/3;
   padding: 3px;
   overflow: hidden;
+  /* border: 1px solid red; */
 }
 
 .inner-frame {
@@ -128,4 +129,34 @@
 .note-deviation-plus {
   text-align: right;
   justify-content: right;
+}
+
+@media (min-width: 480px) {
+  .outer-frame {
+    width: 360px;
+  }
+
+  .info-flat,
+  .info-sharp {
+    font-size: 30px;
+  }
+
+  .info-fork {
+    font-size: 20px;
+  }
+
+  .note-name,
+  .note-index,
+  .note-accidental {
+    font-size: 120px;
+  }
+
+  .note-frequency {
+    font-size: 24px;
+  }
+
+  .note-deviation-minus,
+  .note-deviation-plus {
+    font-size: 16px;
+  }
 }

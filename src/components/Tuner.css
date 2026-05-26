@@ -11,6 +11,7 @@
   /* border: 1px solid red; */
 }
 
+/* TODO: This container may belong to Display. */
 .top {
   width: 100%;
   display: flex;
@@ -21,4 +22,10 @@
   /* Padding top should be equal to the distance to the sides. */
   padding: 12.5vw 0 1rem;
   /* border: 1px solid yellow; */
+}
+
+@media (min-width: 480px) {
+  .top {
+    padding: 60px 0 1rem;
+  }
 }
