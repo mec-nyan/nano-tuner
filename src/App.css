@@ -1,7 +1,3 @@
-:root {
-  --app-name-height: 36px;
-}
-
 .border-top-shine {
   height: 1px;
   width: 100%;
@@ -15,7 +11,7 @@
   grid-template-rows: var(--app-name-height) 1fr;
   background-color: #444;
   background-image: linear-gradient(to bottom, #383838, #202020);
-  color: #909090;
+  color: var(--fg-primary);
 }
 
 .app-name {

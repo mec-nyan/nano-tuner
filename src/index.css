@@ -6,3 +6,9 @@
   box-sizing: border-box;
   font-family: sans-serif;
 }
+
+:root {
+  --app-name-height: 36px;
+  --fg-primary: #808080;
+  --fg-secondary: #707070;
+}

@@ -41,7 +41,7 @@
 
 .ps-label {
   font-size: 1rem;
-  color: #808080;
+  color: var(--fg-primary);
   /* border: 1px solid #444; */
 }
 
