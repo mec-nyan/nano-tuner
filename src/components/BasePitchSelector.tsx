@@ -1,42 +1,57 @@
 import './BasePitchSelector.css'
+import { A4_FREQUENCY } from '../audio/audioConstants'
 
 interface BasePitchProps {
   basePitch: number
   setBasePitch: (offset: number) => void
 }
 
-type offset = 1 | -1
+type offset = 1 | 0 | -1
 
 export default function BasePitchSelector({
   basePitch,
   setBasePitch,
 }: BasePitchProps) {
   const handleOffset = (offset: offset) => {
-    if (offset == 1 && basePitch < 466) {
-      setBasePitch(basePitch + 1)
-    }
-
-    if (offset == -1 && basePitch > 415) {
-      setBasePitch(basePitch - 1)
+    switch (offset) {
+      case 1:
+        if (basePitch < 466) {
+          setBasePitch(basePitch + 1)
+        }
+        break
+      case 0:
+        setBasePitch(A4_FREQUENCY)
+        break
+      case -1:
+        if (basePitch > 415) {
+          setBasePitch(basePitch - 1)
+        }
+        break
     }
   }
 
   return (
     <div className='pitch-selector'>
       <div className='ps-inner-grid'>
-        <div className='ps-label'>−</div>
-        <div className='ps-label'>A4</div>
-        <div className='ps-label'>＋</div>
-        <div className='ps-button'>
-          <div className='button-minus' onClick={() => handleOffset(-1)}></div>
+        <div className='selector-label'>
+          <div className='ps-label'>A4</div>
         </div>
-        {/*
-        An empty button for grid layout.
-        Should we add a 'reset' button?
-        */}
-        <div className='ps-button'></div>
-        <div className='ps-button'>
-          <div className='button-plus' onClick={() => handleOffset(1)}></div>
+
+        <div className='selector-buttons'>
+          <div className='a4-select-minus' onClick={() => handleOffset(-1)}>
+            <div className='button-minus'></div>
+            <div className='ps-label'>−</div>
+          </div>
+
+          <div className='a4-select-reset' onClick={() => handleOffset(0)}>
+            <div className='button-reset'></div>
+            <div className='ps-label'>440</div>
+          </div>
+
+          <div className='a4-select-plus' onClick={() => handleOffset(1)}>
+            <div className='button-plus'></div>
+            <div className='ps-label'>＋</div>
+          </div>
         </div>
       </div>
     </div>
