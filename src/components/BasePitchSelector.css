@@ -18,6 +18,7 @@
 .selector-buttons {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  /* border: 1px solid pink; */
 }
 
 .a4-select-minus,
@@ -29,12 +30,22 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.2s ease-in;
   /* border: 1px solid yellow; */
+}
+
+.a4-select-minus:hover,
+.a4-select-reset:hover,
+.a4-select-plus:hover {
+  background-color: #363636;
 }
 
 .ps-label {
   font-size: 1rem;
   color: var(--fg-primary);
+  user-select: none;
   /* border: 1px solid #444; */
 }
 
