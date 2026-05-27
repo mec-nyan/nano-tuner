@@ -1,0 +1,52 @@
+.flat-sharp-grid {
+  width: 8rem;
+  height: 5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* border: 1px solid green; */
+}
+
+.flat-selector,
+.sharp-selector {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 2rem 3rem;
+  justify-items: center;
+  /* border: 1px solid green; */
+}
+
+.flat-label,
+.sharp-label {
+  color: var(--fg-primary);
+  font-size: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid green; */
+}
+
+.flat-button,
+.sharp-button {
+  width: 80%;
+  height: 1.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.7rem;
+  background-image: linear-gradient(to bottom, #3f3f3f, #202020, #101010);
+  border: 3px solid #000;
+}
+
+/* TODO: Use a nice, glowin effect for this buttons. */
+.active .flat-button,
+.active .sharp-button {
+  background-image: linear-gradient(to bottom, #3f3f3f, #202020, #101010);
+  border: 3px solid green;
+}
+
+.active .flat-label,
+.active .sharp-label {
+  color: limegreen;
+}
