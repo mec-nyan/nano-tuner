@@ -29,6 +29,7 @@ export function Tuner() {
         <Display noteInfo={noteInfo} base={basePitch} />
         <AccuracyBar cents={noteInfo ? noteInfo.cents : null} />
       </div>
+
       {/*
       NOTE: A few components will be added here:
       - One to set the base (A4) frequency,
@@ -39,9 +40,19 @@ export function Tuner() {
 
       The following may be extracted to a "Controls" component.
       */}
-      <div className='controls'>
-        <BasePitchSelector basePitch={basePitch} setBasePitch={setBasePitch} />
-        <FlatSharpSelector acc={acc} setAcc={setAcc} />
+
+      <div className='center'>
+        <div className='controls'>
+          <BasePitchSelector
+            basePitch={basePitch}
+            setBasePitch={setBasePitch}
+          />
+          <FlatSharpSelector acc={acc} setAcc={setAcc} />
+        </div>
+      </div>
+
+      <div className='bottom'>
+        {/* This will hold the Instrument (optional) component. */}
       </div>
     </div>
   )

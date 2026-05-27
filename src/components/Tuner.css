@@ -1,9 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .tuner {
   width: 100%;
   height: 100%;
@@ -20,18 +14,30 @@
   align-items: center;
   box-sizing: border-box;
   /* Padding top should be equal to the distance to the sides. */
-  padding: 12.5vw 0 1rem;
+  padding-top: 12.5vw;
   /* border: 1px solid yellow; */
+}
+
+.center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* border: 1px solid silver; */
 }
 
 .controls {
   display: flex;
   justify-content: space-around;
+  width: 75vw;
   /* border: 1px solid green; */
 }
 
 @media (min-width: 480px) {
   .top {
-    padding: 60px 0 1rem;
+    padding-top: 60px;
+  }
+
+  .controls {
+    width: 360px;
   }
 }
