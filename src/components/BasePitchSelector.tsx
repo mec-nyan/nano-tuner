@@ -31,27 +31,25 @@ export default function BasePitchSelector({
   }
 
   return (
-    <div className='pitch-selector'>
-      <div className='ps-inner-grid'>
-        <div className='selector-label'>
-          <div className='ps-label'>A4</div>
+    <div className='ps-inner-grid'>
+      <div className='selector-label'>
+        <div className='ps-label'>A4</div>
+      </div>
+
+      <div className='selector-buttons'>
+        <div className='a4-select-minus' onClick={() => handleOffset(-1)}>
+          <div className='button-minus'></div>
+          <div className='ps-label'>−</div>
         </div>
 
-        <div className='selector-buttons'>
-          <div className='a4-select-minus' onClick={() => handleOffset(-1)}>
-            <div className='button-minus'></div>
-            <div className='ps-label'>−</div>
-          </div>
+        <div className='a4-select-reset' onClick={() => handleOffset(0)}>
+          <div className='button-reset'></div>
+          <div className='ps-label'>440</div>
+        </div>
 
-          <div className='a4-select-reset' onClick={() => handleOffset(0)}>
-            <div className='button-reset'></div>
-            <div className='ps-label'>440</div>
-          </div>
-
-          <div className='a4-select-plus' onClick={() => handleOffset(1)}>
-            <div className='button-plus'></div>
-            <div className='ps-label'>＋</div>
-          </div>
+        <div className='a4-select-plus' onClick={() => handleOffset(1)}>
+          <div className='button-plus'></div>
+          <div className='ps-label'>＋</div>
         </div>
       </div>
     </div>

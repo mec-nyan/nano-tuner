@@ -7,9 +7,13 @@ import Display from './Display'
 
 import './Tuner.css'
 import { A4_FREQUENCY } from '../audio/audioConstants'
+import FlatSharpSelector from './FlatSharpSelector'
+
+import type { accidental } from '../audio/audioConstants'
 
 export function Tuner() {
   const [basePitch, setBasePitch] = useState(A4_FREQUENCY)
+  const [acc, setAcc] = useState<accidental>('flat')
   const { frequency, error } = usePitchDetector()
 
   // TODO: Display errors gracefully.
@@ -32,8 +36,13 @@ export function Tuner() {
       - One for instrument selection (guitar, ukulele, etc).
 
       I may need to wrap them in a `container` component to tidy up the layout later.
+
+      The following may be extracted to a "Controls" component.
       */}
-      <BasePitchSelector basePitch={basePitch} setBasePitch={setBasePitch} />
+      <div className='controls'>
+        <BasePitchSelector basePitch={basePitch} setBasePitch={setBasePitch} />
+        <FlatSharpSelector acc={acc} setAcc={setAcc} />
+      </div>
     </div>
   )
 }

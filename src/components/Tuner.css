@@ -24,6 +24,12 @@
   /* border: 1px solid yellow; */
 }
 
+.controls {
+  display: flex;
+  justify-content: space-around;
+  /* border: 1px solid green; */
+}
+
 @media (min-width: 480px) {
   .top {
     padding: 60px 0 1rem;
