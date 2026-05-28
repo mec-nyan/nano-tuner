@@ -25,9 +25,13 @@ export default function Display({
       <div className='inner-frame'>
         <div className='display'>
           <div className='top-info-bar'>
-            <div className='info-flat'>♭</div>
+            <div className='info-flat'>
+              {/*♭ TODO: Add indicator/animation... */}
+            </div>
             <div className='info-fork'>A4 = {base}Hz</div>
-            <div className='info-sharp'>♯</div>
+            <div className='info-sharp'>
+              {/*♯ TODO: Add indicator/animation*/}
+            </div>
           </div>
 
           <div className='note'>

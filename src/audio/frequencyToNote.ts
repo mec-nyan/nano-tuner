@@ -81,7 +81,12 @@
  *     @see https://en.wikipedia.org/wiki/Cent_(music)
  */
 
-import { A4_MIDI_NUMBER, ALLOWED_DEVIATION, NOTES } from './audioConstants'
+import {
+  A4_MIDI_NUMBER,
+  ALLOWED_DEVIATION,
+  NOTES,
+  type accidental,
+} from './audioConstants'
 
 import { accidentalToString } from './audioConstants'
 
@@ -102,7 +107,8 @@ export interface NoteInfo {
  */
 export function frequencyToNote(
   frequency: number | null,
-  base: number
+  base: number,
+  acc?: accidental
 ): NoteInfo | null {
   if (frequency === null || !Number.isFinite(frequency) || frequency <= 0) {
     return null
@@ -112,7 +118,8 @@ export function frequencyToNote(
 
   // Find octave.
   const octave = Math.floor(closestMidiNoteNumber / 12) - 1
-  const noteName = NOTES[closestMidiNoteNumber % 12]
+  const note = NOTES[closestMidiNoteNumber % 12]
+  const noteName = note.name(acc)
 
   // How many cents sharp/flat is the note?
   const targetNoteFrequency =
