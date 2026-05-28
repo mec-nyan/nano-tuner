@@ -10,21 +10,27 @@ interface FlatSharpProps {
 export default function FlatSharpSelector({ acc, setAcc }: FlatSharpProps) {
   return (
     <div className='flat-sharp-grid'>
-      <div
-        className={`flat-selector ${acc === 'flat' && 'active'}`}
-        onClick={() => setAcc('flat')}
-      >
-        <div className='flat-label'>♭</div>
-        <div className='flat-button'></div>
+      <div className='flat-sharp-label'>
+        <div className='fs-label'>acc</div>
       </div>
 
-      <div
-        className={`sharp-selector ${acc === 'sharp' && 'active'}`}
-        onClick={() => setAcc('sharp')}
-      >
-        <div className='sharp-label'>♯</div>
-        <div className='sharp-button'></div>
+      <div className='flat-sharp-buttons'>
+        <div
+          className={`flat-button ${acc === 'flat' && 'active'}`}
+          onClick={() => setAcc('flat')}
+        >
+          ♭
+        </div>
+
+        <div
+          className={`sharp-button ${acc === 'sharp' && 'active'}`}
+          onClick={() => setAcc('sharp')}
+        >
+          ♯
+        </div>
       </div>
+
+      <div className='flat-sharp-label'></div>
     </div>
   )
 }
