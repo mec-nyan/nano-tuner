@@ -21,6 +21,8 @@ export function Tuner() {
     return <div className='error-message'>{error}</div>
   }
 
+  // const frequency = 277
+
   const noteInfo = frequencyToNote(frequency, basePitch, acc)
 
   return (
