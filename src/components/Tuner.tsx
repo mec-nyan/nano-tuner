@@ -10,17 +10,15 @@ import { A4_FREQUENCY } from '../audio/audioConstants'
 import FlatSharpSelector from './FlatSharpSelector'
 
 import type { accidental } from '../audio/audioConstants'
+import ErrorMessage from './ErrorMessage'
 
 export function Tuner() {
   const [basePitch, setBasePitch] = useState(A4_FREQUENCY)
   const [acc, setAcc] = useState<accidental>('flat')
   const { frequency, error } = usePitchDetector()
 
-  // TODO: Display errors gracefully.
-  if (error) {
-    return <div className='error-message'>{error}</div>
-  }
-
+  // TODO: Use an environment variable to set the pitch for development
+  // if no pitch is detected:
   // const frequency = 277
 
   const noteInfo = frequencyToNote(frequency, basePitch, acc)
@@ -28,6 +26,7 @@ export function Tuner() {
   return (
     <div className='tuner'>
       <div className='top'>
+        {error && <ErrorMessage error={error} />}
         <Display noteInfo={noteInfo} base={basePitch} />
         <AccuracyBar cents={noteInfo ? noteInfo.cents : null} />
       </div>

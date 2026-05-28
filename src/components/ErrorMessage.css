@@ -1,0 +1,69 @@
+.error-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  /* border: 1px solid red; */
+}
+
+.error-message-border {
+  width: 80%;
+  padding: 1px;
+  background-image: linear-gradient(to bottom left, darkgreen, slateblue);
+  border-radius: 8px;
+}
+
+.error-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  background-color: #0a0a0a;
+  background-image: linear-gradient(#181818, #0a0a0a);
+  border-radius: 8px;
+  box-shadow: 0 0 8px 8px rgba(0, 0, 0, 0.2);
+}
+
+.error-message h2 {
+  color: limegreen;
+}
+
+.error-message p {
+  margin: 2rem 1rem;
+  color: var(--fg-secondary);
+  text-align: center;
+}
+
+.error-close {
+  width: 112px;
+  height: 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem auto;
+  background-image: linear-gradient(
+    #303030 0%,
+    #101010 10%,
+    #080808 90%,
+    #241e45 100%
+  );
+  /* color: var(--fg-primary); */
+  color: limegreen;
+  border: 2px solid black;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border 0.2s ease-in;
+}
+
+.error-close:hover {
+  border: 2px solid darkslateblue;
+}

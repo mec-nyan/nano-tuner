@@ -62,7 +62,7 @@ export function usePitchDetector() {
 
         update()
       } catch (err: any) {
-        setError(`Coudn't access microphone: ${err.message}`)
+        setError(`Couldn't access microphone: ${err.message}`)
       }
     }
 
