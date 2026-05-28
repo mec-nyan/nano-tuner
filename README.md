@@ -10,3 +10,4 @@ A ((stringed) instrument) tuner.  By Nano.
 ### Screenshots:
 
 <img src="./assets/nano-tuner-v1-screenshot.png" width="440" alt="nano tuner v1 screenshot" />
+<img src="./assets/nano-tuner-v1-error-screenshot.png" width="440" alt="nano tuner v1 error screenshot" />
