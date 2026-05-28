@@ -17,9 +17,10 @@ export function Tuner() {
   const [acc, setAcc] = useState<accidental>('flat')
   const { frequency, error } = usePitchDetector()
 
-  // TODO: Use an environment variable to set the pitch for development
-  // if no pitch is detected:
-  // const frequency = 277
+  // For testing/development:
+  // if (frequency === null && process.env.NODE_ENV === 'development') {
+  //   frequency = 277.0
+  // }
 
   const noteInfo = frequencyToNote(frequency, basePitch, acc)
 
@@ -27,7 +28,7 @@ export function Tuner() {
     <div className='tuner'>
       <div className='top'>
         {error && <ErrorMessage error={error} />}
-        <Display noteInfo={noteInfo} base={basePitch} />
+        <Display noteInfo={noteInfo} base={basePitch} error={error} />
         <AccuracyBar cents={noteInfo ? noteInfo.cents : null} />
       </div>
 

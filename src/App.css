@@ -59,7 +59,7 @@ footer p {
 }
 
 .material-symbols-outlined {
-  color: hotpink;
+  /* color: hotpink; */
   font-variation-settings:
     'FILL' 0,
     'wght' 400,
@@ -71,6 +71,7 @@ footer p {
   transform: translateY(4px);
   font-size: 1.1rem;
   padding: 0 3px;
+  color: hotpink;
 }
 
 .author {
