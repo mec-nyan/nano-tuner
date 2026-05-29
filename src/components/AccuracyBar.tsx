@@ -1,7 +1,7 @@
 import './AccuracyBar.css'
 
 export default function AccuracyBar({ cents }: { cents: number | null }) {
-  let lights = []
+  const lights = []
   const numLights = 7
   for (let i = 0; i < numLights; i++) {
     let active = false
