@@ -28,7 +28,7 @@
 .controls {
   display: flex;
   justify-content: space-between;
-  width: 75vw;
+  width: var(--app-display-width);
   margin-top: 2rem;
   /* border: 1px solid green; */
 }
@@ -36,9 +36,5 @@
 @media (min-width: 480px) {
   .top {
     padding-top: 60px;
-  }
-
-  .controls {
-    width: 360px;
   }
 }

@@ -1,15 +1,15 @@
 .outer-frame {
+  /* TOOD: Set a maximum with so it doesn't get messed up
+  on landscape mode. */
+  width: var(--app-display-width);
+  aspect-ratio: 4/3;
+  padding: 3px;
+  overflow: hidden;
   border: 2px solid #222;
   border-bottom-color: #555;
   border-right-color: #444;
   border-radius: 12px;
   background-image: inherit;
-  /* TOOD: Set a maximum with so it doesn't get messed up
-  on landscape mode. */
-  width: 75vw;
-  aspect-ratio: 4/3;
-  padding: 3px;
-  overflow: hidden;
   /* border: 1px solid red; */
 }
 
@@ -135,10 +135,6 @@
 }
 
 @media (min-width: 480px) {
-  .outer-frame {
-    width: 360px;
-  }
-
   .info-error span,
   .info-flat,
   .info-sharp {

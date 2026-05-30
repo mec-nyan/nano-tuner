@@ -12,14 +12,14 @@
 
 .accuracy-lights {
   height: 22px;
-  width: 75vw;
+  width: var(--app-display-width);
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 
 .low-high-indicator {
-  width: 75vw;
+  width: var(--app-display-width);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -73,14 +73,4 @@
 .light .off {
   background: radial-gradient(circle at 50% 40%, #333 0% 15%, black 75%);
   /* display: none; */
-}
-
-@media (min-width: 480px) {
-  .accuracy-lights {
-    width: 360px;
-  }
-
-  .low-high-indicator {
-    width: 360px;
-  }
 }

@@ -10,6 +10,21 @@
 
 :root {
   --app-name-height: 36px;
+  --app-display-width: 75vw;
   --fg-primary: #808080;
   --fg-secondary: #707070;
+}
+
+/* Big displays, desktop, landscape. */
+@media (min-width: 480px) {
+  :root {
+    --app-display-width: 360px;
+  }
+}
+
+/* Small displays. */
+@media (max-width: 360px) {
+  :root {
+    --app-display-width: 85vw;
+  }
 }
