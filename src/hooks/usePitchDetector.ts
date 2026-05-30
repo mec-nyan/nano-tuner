@@ -45,9 +45,9 @@ export function usePitchDetector() {
 
             const detectedFrequency = autoCorrelate(
               buffer,
-              audioContext.sampleRate,
+              audioContext.sampleRate
               // TODO: Add a control to select the threshold and pass it as a parameter.
-              0.02
+              // 0.02
             )
 
             console.log(`Detected: ${detectedFrequency}`)
