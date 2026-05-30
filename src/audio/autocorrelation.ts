@@ -1,6 +1,7 @@
 export function autoCorrelate(
   buffer: Float32Array,
-  sampleRate: number
+  sampleRate: number,
+  rmsThreshold: number = 0.01
 ): number | null {
   // Computer RMS to detect silence.
   let rms = 0
@@ -15,7 +16,7 @@ export function autoCorrelate(
 
   // Too quiet.
   // TODO: Review this limit!
-  if (rms < 0.1) {
+  if (rms < rmsThreshold) {
     return null
   }
 
