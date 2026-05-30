@@ -1,8 +1,8 @@
 .flat-sharp-grid {
   width: 5.5rem;
-  height: 5rem;
+  height: 6rem;
   display: grid;
-  grid-template-rows: 1.4rem 3rem 1fr;
+  grid-template-rows: 1.5rem 3rem 1fr;
   /* border: 1px solid green; */
 }
 
@@ -12,7 +12,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   /* border: 1px solid red; */
 }
 

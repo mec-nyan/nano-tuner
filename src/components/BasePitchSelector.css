@@ -1,8 +1,8 @@
 .ps-inner-grid {
   width: 12rem;
-  height: 5rem;
+  height: 6rem;
   display: grid;
-  grid-template-rows: 2rem 3rem;
+  grid-template-rows: 2rem 1fr;
   /* border: 1px solid #555; */
 }
 
@@ -26,10 +26,10 @@
 .a4-select-plus {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
   align-items: center;
-  justify-content: flex-end;
+  justify-items: center;
   cursor: pointer;
   border-radius: 8px;
   transition: background-color 0.2s ease-in;
