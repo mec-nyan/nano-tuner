@@ -1,6 +1,10 @@
 import './App.css'
 import { Tuner } from './components/Tuner'
 
+import { registerServiceWorker } from './service-worker'
+
+registerServiceWorker()
+
 function App() {
   return (
     <div className='home'>

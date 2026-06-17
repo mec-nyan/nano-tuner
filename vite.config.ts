@@ -5,4 +5,19 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: '/nano-tuner/',
+  build: {
+    copyPublicDir: true,
+		rollupOptions: {
+			output: {
+				entryFileNames: `assets/index.js`,
+				chunkFileNames: `assets/[name].js`,
+				assetFileNames: (info) => {
+					if (info.names.includes("styles.css")) {
+						return "index.css";
+					}
+					return 'assets/[name][extname]';
+				},
+			},
+		},
+  },
 })
