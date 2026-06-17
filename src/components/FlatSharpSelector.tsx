@@ -19,14 +19,14 @@ export default function FlatSharpSelector({ acc, setAcc }: FlatSharpProps) {
           className={`flat-button ${acc === 'flat' && 'active'}`}
           onClick={() => setAcc('flat')}
         >
-          ♭
+          {'♭'}
         </div>
 
         <div
           className={`sharp-button ${acc === 'sharp' && 'active'}`}
           onClick={() => setAcc('sharp')}
         >
-          ♯
+          {'♯'}
         </div>
       </div>
 

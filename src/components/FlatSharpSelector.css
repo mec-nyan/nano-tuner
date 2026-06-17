@@ -37,6 +37,7 @@
   background-image: linear-gradient(to bottom, #3f3f3f, #202020, #101010);
   border: 3px solid #000;
   font-size: 1.4rem;
+  line-height: 2.5rem;
 }
 
 /* TODO: Use a nice, glowin effect for this buttons. */
