@@ -1,0 +1,33 @@
+{
+  "id": "nntnr",
+  "name": "nano tuner",
+  "short_name": "nano tuner",
+  "description": "Advanced tuner for serious* musicians.  (*) And not so serious!",
+  "scope": "/nano-tuner/",
+  "start_url": "/nano-tuner/",
+  "theme_color": "#383838",
+  "background_color": "#383838",
+  "orientation": "portrait",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/nano-tuner/icons/icon.svg",
+      "sizes": "any",
+      "purpose": "any"
+    },
+    {
+      "src": "/nano-tuner/icons/icon.svg",
+      "sizes": "any",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/nano-tuner/screenshots/nano-tuner-screenshot-narrow.png",
+      "sizes": "414x846",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Nano tuner tuning the s**t out of that E4!"
+    }
+  ]
+}
