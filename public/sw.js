@@ -1,4 +1,4 @@
-const VERSION = 'v0.1.1'
+const VERSION = 'v0.1.2'
 
 const CACHE_NAME = `nano-tuner-${VERSION}`
 
@@ -42,7 +42,23 @@ self.addEventListener('activate', (e) => {
 
 self.addEventListener('fetch', (e) => {
   if (e.request.mode === 'navigate') {
-    e.respondWith(caches.match(`${GPATH}/`))
+    e.respondWith(
+      (async () => {
+        const cache = await caches.open(CACHE_NAME)
+        const cachedResponse = await cache.match(`${GPATH}/`)
+        if (cachedResponse) {
+          return cachedResponse
+        }
+
+        // Fallback if somehow not cached:
+        try {
+          const response = await fetch(e.request)
+          return response
+        } catch (err) {
+          return new Response(null, { status: 404 })
+        }
+      })()
+    )
     return
   }
 
@@ -54,8 +70,8 @@ self.addEventListener('fetch', (e) => {
         return cachedResponse
       }
       try {
-        const resp = await fetch(e.request)
-        return resp
+        const response = await fetch(e.request)
+        return response
       } catch (err) {
         return new Response(null, { status: 404 })
       }

@@ -1,13 +1,15 @@
 export function registerServiceWorker() {
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/nano-tuner/sw.js').then(
-      (registration) => {
-        console.log('Service worker registered:', registration)
-      },
-      (error) => {
-        console.error(`Service worker registration failed: ${error}`)
-      }
-    )
+    navigator.serviceWorker
+      .register('/nano-tuner/sw.js', { scope: '/nano-tuner/' })
+      .then(
+        (registration) => {
+          console.log('Service worker registered:', registration)
+        },
+        (error) => {
+          console.error(`Service worker registration failed: ${error}`)
+        }
+      )
   } else {
     console.error('Service workers are not suppported.')
   }
